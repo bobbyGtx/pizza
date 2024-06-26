@@ -1,0 +1,16 @@
+<div class="product">
+
+  <div class="product-img" *ngIf="product.image">
+    <img src="{{product.image}}" alt="Пицца">
+  </div>
+
+  <custom-title [title]="product.title | uppercase"></custom-title>
+  <div class="product-text">{{ product.description | wordUpper:['томат','сыр'] }}</div>
+  <div class="product-action" #elem>
+    <a class="btn btn-add-to-cart" routerLink="/order" [queryParams]="{product:product.title}">В корзину</a>
+    <a class="btn btn-white" [routerLink]="['/products',product.id]">Подробно</a>
+  </div>
+</div>
+<!--(click)="addToCart(product-card,orderElement)"-->
+
+
